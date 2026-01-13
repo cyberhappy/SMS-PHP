@@ -1,5 +1,6 @@
 <?php
 require "../config/config.php"; // Database connection
+require_once "../includes/logger.php"; // include logger
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -13,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($sql)) {
         $_SESSION['success'] = "Data inserted successfully"; // for alert.php
+        log_activity($_SESSION['username'], "Added student: {$name} (ID={$conn->insert_id})");
     } else {
         $_SESSION['error'] = "Error: " . $conn->error;       // for alert.php
     }

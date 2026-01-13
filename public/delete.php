@@ -1,5 +1,6 @@
 <?php
 require '../config/config.php';
+require_once '../includes/logger.php';
 session_start();
 
 // Delete data from the database
@@ -11,6 +12,7 @@ $sql = "DELETE FROM student_info WHERE id = $id";
 
 if($conn->query($sql) === true) {
     $_SESSION['success'] = 'Student Deleted successfully';
+    log_activity($_SESSION['username'], "Deleted student: {$name} (ID={$id})");
     header('Location: home.php');
     exit;
 }

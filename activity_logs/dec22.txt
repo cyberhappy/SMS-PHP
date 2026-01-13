@@ -1,0 +1,4 @@
+ahmedsahal | 2025-12-22 14:23:08 | Attempted login while account is disabled
+ahmedsahal | 2025-12-22 14:23:45 | Logged in successfully
+ahmedsahal | 2025-12-22 14:25:11 | Added exam: GUB-0192 for student ID 6
+ahmedsahal | 2025-12-22 14:55:48 | Deleted exam (Exam ID: 25)

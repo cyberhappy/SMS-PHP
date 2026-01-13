@@ -1,0 +1,14 @@
+ahmedsahal | 2026-01-11 14:29:41 | Logged in successfully
+ahmedsahal | 2026-01-11 14:49:04 | Updated student: Mohamed Ali  (ID=6)
+ahmedsahal | 2026-01-11 14:49:28 | Deleted student:  (ID=74)
+ahmedsahal | 2026-01-11 14:49:31 | Deleted student:  (ID=73)
+ahmedsahal | 2026-01-11 14:49:34 | Deleted student:  (ID=72)
+ahmedsahal | 2026-01-11 14:49:37 | Deleted student:  (ID=71)
+ahmedsahal | 2026-01-11 14:49:44 | Deleted student:  (ID=70)
+ahmedsahal | 2026-01-11 14:49:47 | Deleted student:  (ID=69)
+ahmedsahal | 2026-01-11 14:50:00 | Deleted student:  (ID=66)
+ahmedsahal | 2026-01-11 14:50:10 | Deleted student:  (ID=65)
+ahmedsahal | 2026-01-11 15:22:03 | Logged in successfully
+ahmedsahal | 2026-01-11 15:23:43 | Logged in successfully
+ahmedsahal | 2026-01-11 18:24:42 | Added student: waar kadaa bal (ID=75)
+ahmedsahal | 2026-01-11 18:25:37 | Added student: waar kadaa bal (ID=76)

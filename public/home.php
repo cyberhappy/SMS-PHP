@@ -1,8 +1,10 @@
 <?php
+$page = "student";  // tells load_data.php to load student_info
+$searchAction = "../public/home.php";
 require '../config/config.php';
 require '../includes/load_data.php';
 require '../includes/auth_check.php';
-
+require '../includes/role.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +29,16 @@ require '../includes/auth_check.php';
                 <h2 class="mt-2">Student List 
 
                     <span class="position-absolute start-50 translate-middle-x">
-                    <a href="../includes/export.php" class="btn fs-3 me-2">
+                    <a href="../includes/export.php" class="btn fs-3 me-2 <?= canBackup() ? '' : 'disabled text-secondary bg-transparent border-0' ?> ">
                         <i class="bi bi-download"></i> Backup
                     </a>
-                    <a href="" class="btn fs-3" data-bs-toggle="modal" data-bs-target="#restoreModal">
+                    <a href="" class="btn fs-3  <?= canRestore() ? '' : 'disabled text-secondary bg-transparent border-0' ?>" data-bs-toggle="modal" data-bs-target="#restoreModal">
                         <i class="bi bi-upload"></i> restore
                     </a>
                 </span>
          
 
-                    <button class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#mymodal">+ Add Student</button>
+                    <button class="btn btn-success float-end <?= canAdd() ? '' : 'disabled' ?>"  data-bs-toggle="modal" data-bs-target="#mymodal">+ Add Student</button>
                 </h2>
                 <?php
                     require '../includes/alert.php';
@@ -44,7 +46,7 @@ require '../includes/auth_check.php';
 
                 <div class="table-responsive rounded-3" style="max-height: 700px; overflow-y: auto;">
                 <table class="table table-striped table-bordered table-hover mb-0">
-                    <tr class="table-dark text-light">
+                    <tr class="table-dark text-light sticky-top">
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -60,10 +62,13 @@ require '../includes/auth_check.php';
                         <td><?= $row['email'] ?></td>
                         <td><?= $row['phone'] ?></td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#edit<?= $row['id']?>">
+                            <a href="" class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#View<?= $row['id']?>">
+                                <i class="bi bi-info-circle-fill"></i>
+                            </a>
+                            <a href="" class="btn btn-warning btn-sm me-2 <?= canUpdate() ? '' : 'disabled' ?> " data-bs-toggle="modal" data-bs-target="#edit<?= $row['id']?>">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="" class="btn btn-danger btn-sm me-2" data-bs-toggle="modal" data-bs-target="#delete<?= $row['id'] ?>">
+                            <a href="" class="btn btn-danger btn-sm me-2 <?= canDelete() ? '' : 'disabled' ?>" data-bs-toggle="modal" data-bs-target="#delete<?= $row['id'] ?>">
                                 <i class="bi bi-trash"></i>
                             </a>
 
@@ -74,7 +79,9 @@ require '../includes/auth_check.php';
                             <?php require'../models/deleteM.php' ?>
                         </td>
                     </tr>
-                    <?php require '../models/updateM.php' ?>
+                    <?php require '../models/updateM.php';
+                          require '../models/View_Data.php';
+                     ?>
                     <?php endwhile; ?>
 
                 </table>

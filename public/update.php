@@ -1,6 +1,8 @@
 <?php
 require "../config/config.php";
+require_once "../includes/logger.php"; // include logger
 session_start(); // Start the session to store flash messages
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
@@ -15,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         // Set a success message in the session
         $_SESSION['success'] = 'Data updated successfully';
+        log_activity($_SESSION['username'], "Updated student: {$name} (ID={$id})");
         header("Location: home.php");
     } else {
         $_SESSION['error'] = "Error updating record: " . $conn->error;

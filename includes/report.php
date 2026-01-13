@@ -61,13 +61,40 @@ class PDF extends FPDF {
         $this->Ln(10);
     }
 
-    // Student exams section placeholder
-    function ExamsSection() {
-        $this->SectionTitle('STUDENT EXAMS');
-        $this->SetFont('Arial', 'I', 11);
-        $this->SetTextColor(100);
-        $this->Cell(0, 8, 'Exam details will appear here.', 0, 1, 'C');
+function ExamsTable($exams) {
+    $this->SectionTitle('STUDENT EXAMS');
+
+    // Table header
+    $this->SetFont('Arial', 'B', 10);
+    $this->SetFillColor(10, 45, 100);
+    $this->SetTextColor(255, 255, 255); // white text
+
+    $this->SetX($this->lMargin);
+    $this->Cell(30, 8, 'Code', 1, 0, 'C', true);
+    $this->Cell(60, 8, 'Course Name', 1, 0, 'C', true);
+    $this->Cell(20, 8, 'Score', 1, 0, 'C', true);
+    $this->Cell(40, 8, 'Semester', 1, 0, 'C', true);
+    $this->Cell(40, 8, 'Exam Date', 1, 1, 'C', true);
+
+
+    // Table body
+    $this->SetFont('Arial', '', 10);
+    $this->SetTextColor(0); // back to black for data rows
+
+
+    if ($exams->num_rows == 0) {
+        $this->Cell(190, 8, 'No exams found for this student.', 1, 1, 'C');
+        return;
     }
+
+    while ($row = $exams->fetch_assoc()) {
+        $this->Cell(30, 8, $row['course_code'], 1);
+        $this->Cell(60, 8, $row['course_name'], 1);
+        $this->Cell(20, 8, $row['score'], 1, 0, 'C');
+        $this->Cell(40, 8, $row['semester'], 1);
+        $this->Cell(40, 8, $row['exam_date'], 1, 1);
+    }
+}
 }
 
 // Fetch student info
@@ -75,6 +102,12 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $result = $conn->query("SELECT * FROM student_info WHERE id = $id");
     $student = $result->fetch_assoc();
+
+    $examQuery = $conn->query(
+    "SELECT course_code, course_name, score, semester, exam_date 
+     FROM exam_results 
+     WHERE student_id = $id"
+);
 
     $pdf = new PDF();
     $pdf->AddPage();
@@ -84,7 +117,7 @@ if (isset($_GET['id'])) {
     $pdf->StudentInfo($student);
 
     // Exams section placeholder
-    $pdf->ExamsSection();
+    $pdf->ExamsTable($examQuery);
 
     // Output PDF
     $filename = 'Student_Report_' . strtoupper($student['name']) . '.pdf';
