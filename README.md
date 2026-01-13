@@ -1,7 +1,8 @@
 # 🎓 Student Management System (SMS)
 
-A modern and responsive **Student Management System (SMS)** built using **PHP**, **MySQL**, and **Bootstrap 5**.  
-This system provides an efficient and user-friendly way to manage student information — including adding, updating, deleting, and viewing records — all within a sleek interface.
+A modern and responsive **Student Management System (SMS)** built using **PHP**, **MySQL**, and **Bootstrap 5**.
+This system provides an efficient and user-friendly way to manage student information — including adding, updating,
+ deleting, and viewing records — all within a sleek interface, ideal for academic institutions and educators.
 
 
 ---
@@ -11,6 +12,7 @@ This system provides an efficient and user-friendly way to manage student inform
 ✅ **User Authentication**
 - Secure login system with session-based access.
 - Displays UI messages for invalid credentials.
+- Blocks malicious user login attempts to enhance security.
 
 ✅ **Student Management**
 - Add, update, and delete students easily.
@@ -25,12 +27,9 @@ This system provides an efficient and user-friendly way to manage student inform
 ✅ **Email Password Reset**
 - Reset password securely via a password reset link sent to the user's email.
 
-
-
 ✅ **Backup and Restore**
 - Export student data backups in CSV format to ensure data safety and prevent loss.
 - Import and restore student data easily from CSV files within the system, enabling quick recovery.
-
 
 ✅ **Generate Student Report via PDF**
 - Export and download detailed student reports in PDF format for easy sharing and printing.
@@ -39,19 +38,27 @@ This system provides an efficient and user-friendly way to manage student inform
 - Displays success and error messages for all actions with elegant UI design.
 
 ✅ **Modular File Structure**
-- Organized PHP files and separate modal, JS, and CSS components for maintainability.
+- Organized PHP files and separate modals, JS, and CSS components for maintainability.
+
+✅ **Log Activity System**
+- Records user activities to keep track of actions performed within the system for auditing and monitoring.
+
+✅ **Examination Page**
+- Fully functional examination page integrated to manage and conduct exams within the system.
+
+✅ **Custom 404 Page**
+- User-friendly and styled custom 404 error page for better user experience when pages are not found.
 
 
 ---
 
 
-
 ## 🧠 Technologies Used
 
 | Technology   | Purpose                                              |
-|--------------|------------------------------------------------------|
+|--------------|-----------------------------------------------------|
 | PHP          | Backend scripting to handle server-side logic       |
-| MySQL        | Database management for storing student information  |
+| MySQL        | Database management for storing student information |
 | Bootstrap 5  | Frontend styling for responsive and modern UI       |
 | HTML5 & CSS3 | Page structure and design with clean, semantic markup|
 | JavaScript   | Adding interactivity and theme toggle functionality  |
@@ -69,7 +76,7 @@ Follow these simple steps to get your Student Management System (SMS) up and run
    - **Windows users:**
      Download and install [XAMPP](https://www.apachefriends.org/index.html).
      Move the project folder into the `htdocs` directory inside your XAMPP installation folder (e.g., `C:\xampp\htdocs\
-student-management-system`).
+SMS-PHP`).
 
    - **Linux users:**
      Install the [LAMP stack](https://bitnami.com/stack/lamp) on your machine.
@@ -77,18 +84,17 @@ student-management-system`).
 
 3. **Configure the Database**
    - Open **phpMyAdmin** by navigating to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) in your browser.
-
-   - Create a new database (e.g., `sms_db`).
-   - Import the provided SQL export file (usually named `database.sql` or similar) to set up the required tables and
- data.
+   - Create a new database (e.g., `sms`).
+   - Import the provided SQL export file (usually named `sms.sql` or similar) to set up the required tables and data.
 
 4. **Update Configuration (if needed)**
    - Check the project’s configuration files (e.g., `config.php`) and update database credentials if necessary.
 
 5. **Run the Application**
-   - Open your browser and go to:
-     `http://localhost/student-management-system`
-   - You should see the Student Management System interface ready to use!
+   - Open your browser and go to `http://localhost/SMS-PHP/public`.
+   You should now see the Student Management System interface ready to use!
+
+
 
 
 
@@ -122,7 +128,9 @@ Thank you for helping improve this project! 🎉
 
 **Ahmed Sahal**
 University Lecturer, cybersecurity engineer & Developer
+
 X [@bx1happy](https://twitter.com/bx1happy)
+
 🌐 [https://github.com/cyberhappy](https://github.com/cyberhappy)
 
 ---
@@ -135,5 +143,5 @@ If you find this project helpful, please ⭐ star this repository on GitHub — 
 ## 🧾 License
 
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
-You may use, modify, and distribute this software freely as long as the same license is applied.
+You may use, modify, and distribute this WebApp freely as long as the same license is applied.
 
