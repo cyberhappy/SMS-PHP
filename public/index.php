@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/asset/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/asset/css/style.css">
-    <link rel="shortcut icon" href="../public/asset/images/password.png" type="image/x-icon">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="shortcut icon" href="../public/assets/images/password.png" type="image/x-icon">
 </head>
 <body>
 

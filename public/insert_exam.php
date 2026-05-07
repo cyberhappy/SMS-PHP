@@ -14,6 +14,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $semester    = trim($_POST['semester']);
     $exam_date   = $_POST['exam_date'];
 
+    // ✅ Check if student exists
+    $studentCheckSql = "SELECT id FROM student_info WHERE id = ?";
+    $studentCheckStmt = $conn->prepare($studentCheckSql);
+    $studentCheckStmt->bind_param("i", $student_id);
+    $studentCheckStmt->execute();
+    $studentCheckStmt->store_result();
+
+    if ($studentCheckStmt->num_rows === 0) {
+        $_SESSION['error'] = "❌ This student is not registered in the system.";
+        header("Location: exam.php");
+        exit();
+    }
+
+    log_activity(
+    $_SESSION['username'],
+    "Attempted to register exam for non-existent student ID {$student_id}"
+);
+    $studentCheckStmt->close();
+
 
     // Check if exam already exists for this student & course
     $checkSql = "SELECT exam_id FROM exam_results 

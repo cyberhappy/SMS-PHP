@@ -10,7 +10,7 @@ class PDF extends FPDF {
         $this->Rect(0, 0, 215, 40, 'F'); // ✅ Extended width from 210 to 215 to cover right edge perfectly
 
         // Logo
-        $this->Image('../public/asset/images/mortarboard.png', 95, 8, 20);
+        $this->Image('../public/assets/images/mortarboard.png', 95, 8, 20);
 
         // University name
         $this->SetFont('Arial', 'B', 16);
@@ -81,20 +81,76 @@ function ExamsTable($exams) {
     $this->SetFont('Arial', '', 10);
     $this->SetTextColor(0); // back to black for data rows
 
-
+    // GPA variables
+    $totalScore = 0;
+    $totalSubjects = 0;
     if ($exams->num_rows == 0) {
         $this->Cell(190, 8, 'No exams found for this student.', 1, 1, 'C');
         return;
     }
 
     while ($row = $exams->fetch_assoc()) {
+        // Add to GPA calculation
+        $totalScore += $row['score'];
+        $totalSubjects++;
         $this->Cell(30, 8, $row['course_code'], 1);
         $this->Cell(60, 8, $row['course_name'], 1);
         $this->Cell(20, 8, $row['score'], 1, 0, 'C');
         $this->Cell(40, 8, $row['semester'], 1);
         $this->Cell(40, 8, $row['exam_date'], 1, 1);
     }
+           // Call GPA section
+    $this->GPASection($totalScore, $totalSubjects);
 }
+function GPASection($totalScore, $totalSubjects) {
+
+    $this->Ln(8);
+
+    // Calculate average
+    $average = $totalSubjects > 0 ? $totalScore / $totalSubjects : 0;
+
+    // Calculate GPA
+    $gpa = $average / 20;
+
+    // Determine Grade
+    if ($average >= 90) {
+        $grade = 'A';
+    } elseif ($average >= 80) {
+        $grade = 'B';
+    } elseif ($average >= 70) {
+        $grade = 'C';
+    } elseif ($average >= 60) {
+        $grade = 'D';
+    } else {
+        $grade = 'F';
+    }
+
+    // Section Title
+    $this->SetFont('Arial', 'B', 12);
+    $this->SetFillColor(10, 45, 100);
+    $this->SetTextColor(255, 255, 255);
+    $this->Cell(0, 10, 'ACADEMIC SUMMARY', 0, 1, 'C', true);
+
+    $this->Ln(3);
+
+    // Data style
+    $this->SetFont('Arial', '', 11);
+    $this->SetTextColor(0);
+    $this->SetFillColor(240, 245, 255);
+
+    // Row 1
+    $this->Cell(95, 8, 'Total Subjects: ' . $totalSubjects, 1, 0, 'L', true);
+    $this->Cell(95, 8, 'Total Score: ' . $totalScore, 1, 1, 'L', true);
+
+    // Row 2
+    $this->Cell(95, 8, 'Average Score: ' . number_format($average, 2), 1, 0, 'L', true);
+    $this->Cell(95, 8, 'GPA: ' . number_format($gpa, 2), 1, 1, 'L', true);
+
+    // Row 3 (Grade highlight)
+    $this->SetFont('Arial', 'B', 12);
+    $this->Cell(190, 10, 'Final Grade: ' . $grade, 1, 1, 'C', true);
+}
+
 }
 
 // Fetch student info

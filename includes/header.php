@@ -10,7 +10,7 @@
             />
             <div class="float-end me-5">
                 <form action="<?= $searchAction ?>" method="GET">
-            <input type="text" name="searchBox" class="form-control rounded-pill bg-light mt-2" placeholder="Search Here" data-bs-theme="light">
+            <input type="text" name="searchBox" id="searchBox" class="form-control rounded-pill bg-light mt-2" placeholder="Search Here" data-bs-theme="light">
                 </form>    
         </div>
             <h1 class="text-center ms-5">Welcome PHP WebApp</h1>

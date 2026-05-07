@@ -1,4 +1,5 @@
 <?php
+session_start();
 $page = "student";  // tells load_data.php to load student_info
 $searchAction = "../public/home.php";
 require '../config/config.php';
@@ -12,9 +13,9 @@ require '../includes/role.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="../public/asset/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/asset/css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="../public/asset/images/mortarboard.png">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../public/assets/images/mortarboard.png">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -78,6 +79,7 @@ require '../includes/role.php'
 
                             <?php require'../models/deleteM.php' ?>
                         </td>
+                        <div id="noData" class="text-center text-muted mt-3" style="display:none;"><h4>🔍 No matching results found 😢</h4></div>
                     </tr>
                     <?php require '../models/updateM.php';
                           require '../models/View_Data.php';
@@ -102,8 +104,8 @@ require '../includes/role.php'
     require '../includes/footer.php'
 ?>
 
-
 </body>
-<script src="../public/asset/js/toggle.js"></script>
-<script src="../public/asset/css/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+<script src="../public/assets/js/toggle.js"></script>
+<script src="../public/assets/css/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+<script src="../public/assets/js/search.js"></script>
 </html>

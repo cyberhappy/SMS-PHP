@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user) {
         // Direct link to reset password form (no token)
-        $reset_link = "http://localhost/sms/public/reset_password.php?email=" . urlencode($email);
+        $reset_link = "http://localhost/smss/public/reset_password.php?email=" . urlencode($email);
 
         // Send Email
         $mail = new PHPMailer(true);

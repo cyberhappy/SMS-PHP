@@ -12,9 +12,9 @@ require '../includes/load_data.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Page</title>
-    <link rel="stylesheet" href="../public/asset/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/asset/css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="../public/asset/images/mortarboard.png">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/assets/css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../public/assets/images/mortarboard.png">
 </head>
 <body class="d-flex flex-column min-vh-100">
     
@@ -27,7 +27,7 @@ require '../includes/load_data.php'
         <div class="row">
             <div class="col md-12">
                 <h2 class="mt-2">Student List 
-                    <button class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#mymodal">+ Add Student</button>
+                    <button class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#mymodal">+ Add Exam</button>
                 </h2>
                  <?php require '../models/addExamM.php';
                         require '../includes/alert.php';
@@ -91,6 +91,6 @@ require '../includes/load_data.php'
 
 
 </body>
-<script src="../public/asset/js/toggle.js"></script>
-<script src="../public/asset/css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../public/assets/js/toggle.js"></script>
+<script src="../public/assets/css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </html>

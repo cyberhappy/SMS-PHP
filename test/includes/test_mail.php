@@ -8,7 +8,7 @@ require __DIR__ . '/mail_config.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$recipient = 'localhost@gmail.com'; // <- change to an email you can check
+$recipient = 'localhost770@gmail.com'; // <- change to an email you can check
 
 try {
     $mail = new PHPMailer(true);

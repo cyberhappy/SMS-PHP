@@ -10,7 +10,7 @@ class PDF extends FPDF {
         $this->Rect(0, 0, 215, 40, 'F'); // ✅ Extended width from 210 to 215 to cover right edge perfectly
 
         // Logo
-        $this->Image('../public/asset/images/mortarboard.png', 95, 8, 20);
+        $this->Image('../public/assets/images/mortarboard.png', 95, 8, 20);
 
         // University name
         $this->SetFont('Arial', 'B', 16);

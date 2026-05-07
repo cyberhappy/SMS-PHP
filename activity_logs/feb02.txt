@@ -1,0 +1,1 @@
+ | 2026-02-02 07:33:21 | Attempted to register exam for non-existent student ID 63
